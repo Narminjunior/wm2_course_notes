@@ -44,7 +44,12 @@ public class PersonController {
         mv.addObject("person", found);
 
         return mv;
+    }
 
+    @GetMapping("/delete/{id}")
+    public String deletePerson(@PathVariable String id, Model model) {
+        personService.deleteById(id);
+        return "redirect:/";
     }
 }
 
